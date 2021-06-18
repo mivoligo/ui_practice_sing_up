@@ -7,11 +7,10 @@ class WelcomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Expanded(
-            child: Container(
-              color: Colors.blue,
-            ),
+            child: Image.asset('assets/images/welcome_image.png'),
           ),
           Expanded(
             child: Column(
