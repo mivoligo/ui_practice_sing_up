@@ -6,40 +6,53 @@ class WelcomeScreen extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: [
-          Container(
-            color: Colors.blue,
+          Expanded(
+            child: Container(
+              color: Colors.blue,
+            ),
           ),
-          Column(
-            children: [
-              const Text('Welcome'),
-              const Text('App allows to take pictures of your'
-                  ' receipts and save the receipt information'),
-              Row(
-                children: [
-                  TextButton(
-                    onPressed: () {},
-                    child: const Text('Login'),
+          Expanded(
+            child: Column(
+              children: [
+                const Text(
+                  'Welcome',
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
                   ),
-                  OutlinedButton(
-                    onPressed: () {},
-                    child: const Text('Sign Up'),
-                  ),
-                ],
-              ),
-              const Text('Or via social media'),
-              Row(
-                children: [
-                  TextButton(
-                    onPressed: () {},
-                    child: const Text('f'),
-                  ),
-                  TextButton(
-                    onPressed: () {},
-                    child: const Text('G'),
-                  ),
-                ],
-              ),
-            ],
+                ),
+                const Text(
+                  'App allows to take pictures of your'
+                  ' receipts and save the receipt information',
+                  style: TextStyle(color: Colors.grey),
+                ),
+                Row(
+                  children: [
+                    TextButton(
+                      onPressed: () {},
+                      child: const Text('Login'),
+                    ),
+                    OutlinedButton(
+                      onPressed: () {},
+                      child: const Text('Sign Up'),
+                    ),
+                  ],
+                ),
+                const Text('Or via social media'),
+                Row(
+                  children: [
+                    TextButton(
+                      onPressed: () {},
+                      child: const Text('f'),
+                    ),
+                    TextButton(
+                      onPressed: () {},
+                      child: const Text('G'),
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
         ],
       ),
