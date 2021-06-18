@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:sign_up/ui/social_button.dart';
 
 class WelcomeScreen extends StatelessWidget {
   @override
@@ -60,14 +62,17 @@ class WelcomeScreen extends StatelessWidget {
                 ),
                 const Text('Or via social media'),
                 Row(
+                  mainAxisSize: MainAxisSize.min,
                   children: [
-                    TextButton(
+                    SocialButton(
+                      backgroundColor: Colors.blue,
+                      icon: FontAwesomeIcons.facebookF,
                       onPressed: () {},
-                      child: const Text('f'),
                     ),
-                    TextButton(
+                    SocialButton(
+                      backgroundColor: Colors.red,
+                      icon: FontAwesomeIcons.google,
                       onPressed: () {},
-                      child: const Text('G'),
                     ),
                   ],
                 ),
