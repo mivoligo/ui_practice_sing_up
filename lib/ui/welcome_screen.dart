@@ -11,31 +11,31 @@ class WelcomeScreen extends StatelessWidget {
           ),
           Column(
             children: [
-              Text('Welcome'),
-              Text('App allows to take pictures of your'
+              const Text('Welcome'),
+              const Text('App allows to take pictures of your'
                   ' receipts and save the receipt information'),
               Row(
                 children: [
                   TextButton(
                     onPressed: () {},
-                    child: Text('Login'),
+                    child: const Text('Login'),
                   ),
                   OutlinedButton(
                     onPressed: () {},
-                    child: Text('Sign Up'),
+                    child: const Text('Sign Up'),
                   ),
                 ],
               ),
-              Text('Or via social media'),
+              const Text('Or via social media'),
               Row(
                 children: [
                   TextButton(
                     onPressed: () {},
-                    child: Text('f'),
+                    child: const Text('f'),
                   ),
                   TextButton(
                     onPressed: () {},
-                    child: Text('G'),
+                    child: const Text('G'),
                   ),
                 ],
               ),
