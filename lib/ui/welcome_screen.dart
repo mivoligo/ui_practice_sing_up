@@ -27,14 +27,34 @@ class WelcomeScreen extends StatelessWidget {
                   style: TextStyle(color: Colors.grey),
                 ),
                 Row(
+                  mainAxisSize: MainAxisSize.min,
                   children: [
                     TextButton(
                       onPressed: () {},
                       child: const Text('Login'),
+                      style: TextButton.styleFrom(
+                        backgroundColor: Colors.blue,
+                        primary: Colors.white,
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 40.0,
+                          vertical: 18.0,
+                        ),
+                        shape: const StadiumBorder(),
+                      ),
                     ),
+                    const SizedBox(width: 8.0),
                     OutlinedButton(
                       onPressed: () {},
                       child: const Text('Sign Up'),
+                      style: TextButton.styleFrom(
+                        primary: Colors.black,
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 40.0,
+                          vertical: 18.0,
+                        ),
+                        shape: const StadiumBorder(),
+                        side: const BorderSide(width: 2.0),
+                      ),
                     ),
                   ],
                 ),
