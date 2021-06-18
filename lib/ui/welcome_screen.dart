@@ -15,6 +15,7 @@ class WelcomeScreen extends StatelessWidget {
           ),
           Expanded(
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 const Text(
                   'Welcome',
@@ -23,10 +24,14 @@ class WelcomeScreen extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                const Text(
-                  'App allows to take pictures of your'
-                  ' receipts and save the receipt information',
-                  style: TextStyle(color: Colors.grey),
+                const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 16.0),
+                  child: Text(
+                    'App allows to take pictures of your'
+                    ' receipts and save the receipt information',
+                    style: TextStyle(color: Colors.grey),
+                    textAlign: TextAlign.center,
+                  ),
                 ),
                 Row(
                   mainAxisSize: MainAxisSize.min,
@@ -60,20 +65,26 @@ class WelcomeScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-                const Text('Or via social media'),
-                Row(
-                  mainAxisSize: MainAxisSize.min,
+                Column(
                   children: [
-                    SocialButton(
-                      backgroundColor: Colors.blue,
-                      icon: FontAwesomeIcons.facebookF,
-                      onPressed: () {},
+                    const Text('Or via social media'),
+                    const SizedBox(height: 8.0),
+                    Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        SocialButton(
+                          backgroundColor: Colors.blue,
+                          icon: FontAwesomeIcons.facebookF,
+                          onPressed: () {},
+                        ),
+                        SocialButton(
+                          backgroundColor: Colors.red,
+                          icon: FontAwesomeIcons.google,
+                          onPressed: () {},
+                        ),
+                      ],
                     ),
-                    SocialButton(
-                      backgroundColor: Colors.red,
-                      icon: FontAwesomeIcons.google,
-                      onPressed: () {},
-                    ),
+                    const SizedBox(height: 36.0),
                   ],
                 ),
               ],
