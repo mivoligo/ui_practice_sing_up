@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:sign_up/ui/login_screen.dart';
 import 'package:sign_up/ui/social_button.dart';
 
 class WelcomeScreen extends StatelessWidget {
@@ -36,7 +37,11 @@ class WelcomeScreen extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () => Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => LoginScreen(),
+                        ),
+                      ),
                       child: const Text('Login'),
                       style: TextButton.styleFrom(
                         backgroundColor: Colors.blue,

@@ -25,7 +25,7 @@ class SocialButton extends StatelessWidget {
           backgroundColor: backgroundColor,
           primary: Colors.white,
           shape: const CircleBorder(),
-          padding: EdgeInsets.all(18.0)),
+          padding: const EdgeInsets.all(18.0)),
     );
   }
 }
