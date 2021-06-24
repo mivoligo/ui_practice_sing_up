@@ -7,56 +7,68 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          const Text(
-            'Welcome Back!',
-            style: TextStyle(
-              fontSize: 24.0,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          Image.asset('assets/images/login_image.png'),
-          const CupertinoTextField(),
-          const CupertinoTextField(),
-          TextButton(
-            onPressed: () {},
-            child: const Text('Forgot Password'),
-          ),
-          TextButton(
-            onPressed: () {},
-            child: const Text('Login'),
-            style: TextButton.styleFrom(
-              backgroundColor: Colors.blue,
-              primary: Colors.white,
-              padding: const EdgeInsets.symmetric(
-                horizontal: 40.0,
-                vertical: 18.0,
+      body: Padding(
+        padding: const EdgeInsets.all(32.0),
+        child: Column(
+          children: [
+            const Text(
+              'Welcome Back!',
+              style: TextStyle(
+                fontSize: 24.0,
+                fontWeight: FontWeight.bold,
               ),
-              shape: const StadiumBorder(),
             ),
-          ),
-          TextButton(
-            onPressed: () {},
-            child: const Text('Login Via OTP'),
-          ),
-          Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              SocialButton(
+            Expanded(child: Image.asset('assets/images/login_image.png')),
+            const CupertinoTextField(),
+            const CupertinoTextField(),
+            Row(
+              children: [
+                const Spacer(),
+                TextButton(
+                  onPressed: () {},
+                  child: const Text('Forgot Password'),
+                ),
+              ],
+            ),
+            const SizedBox(height: 16.0),
+            TextButton(
+              onPressed: () {},
+              child: const Text('Login'),
+              style: TextButton.styleFrom(
                 backgroundColor: Colors.blue,
-                icon: FontAwesomeIcons.facebookF,
-                onPressed: () {},
+                primary: Colors.white,
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 40.0,
+                  vertical: 18.0,
+                ),
+                shape: const StadiumBorder(),
               ),
-              SocialButton(
-                backgroundColor: Colors.red,
-                icon: FontAwesomeIcons.google,
-                onPressed: () {},
-              ),
-            ],
-          ),
-          const Text('Don\'t have an account? Sign Up'),
-        ],
+            ),
+            const SizedBox(height: 16.0),
+            TextButton(
+              onPressed: () {},
+              child: const Text('Login Via OTP'),
+            ),
+            const SizedBox(height: 16.0),
+            Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                SocialButton(
+                  backgroundColor: Colors.blue,
+                  icon: FontAwesomeIcons.facebookF,
+                  onPressed: () {},
+                ),
+                SocialButton(
+                  backgroundColor: Colors.red,
+                  icon: FontAwesomeIcons.google,
+                  onPressed: () {},
+                ),
+              ],
+            ),
+            const SizedBox(height: 16.0),
+            const Text('Don\'t have an account? Sign Up'),
+          ],
+        ),
       ),
     );
   }
