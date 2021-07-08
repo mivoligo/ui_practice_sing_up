@@ -14,14 +14,24 @@ class LoginScreen extends StatelessWidget {
           padding: const EdgeInsets.all(32.0),
           child: Column(
             children: [
-              const Text(
-                'Welcome Back!',
-                style: TextStyle(
-                  fontSize: 24.0,
-                  fontWeight: FontWeight.bold,
+              const Hero(
+                tag: 'text',
+                child: Material(
+                  type: MaterialType.transparency,
+                  child: Text(
+                    'Welcome Back!',
+                    style: TextStyle(
+                      fontSize: 24.0,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
                 ),
               ),
-              Expanded(child: Image.asset('assets/images/login_image.png')),
+              Expanded(
+                child: Hero(
+                    tag: 'image',
+                    child: Image.asset('assets/images/login_image.png')),
+              ),
               const CupertinoTextField(
                 prefix: Icon(
                   Icons.mail_outline,
@@ -79,17 +89,20 @@ class LoginScreen extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 16.0),
-              TextButton(
-                onPressed: () {},
-                child: const Text('Login'),
-                style: TextButton.styleFrom(
-                  backgroundColor: Colors.blue,
-                  primary: Colors.white,
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 40.0,
-                    vertical: 18.0,
+              Hero(
+                tag: 'login_button',
+                child: TextButton(
+                  onPressed: () {},
+                  child: const Text('Login'),
+                  style: TextButton.styleFrom(
+                    backgroundColor: Colors.blue,
+                    primary: Colors.white,
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 40.0,
+                      vertical: 18.0,
+                    ),
+                    shape: const StadiumBorder(),
                   ),
-                  shape: const StadiumBorder(),
                 ),
               ),
               const SizedBox(height: 16.0),
@@ -98,23 +111,28 @@ class LoginScreen extends StatelessWidget {
                 child: const Text('Login Via OTP'),
               ),
               const SizedBox(height: 16.0),
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  SocialButton(
-                    backgroundColor: Colors.blue,
-                    icon: FontAwesomeIcons.facebookF,
-                    onPressed: () {},
-                  ),
-                  SocialButton(
-                    backgroundColor: Colors.red,
-                    icon: FontAwesomeIcons.google,
-                    onPressed: () {},
-                  ),
-                ],
+              Hero(
+                tag: 'social_buttons',
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    SocialButton(
+                      backgroundColor: Colors.blue,
+                      icon: FontAwesomeIcons.facebookF,
+                      onPressed: () {},
+                    ),
+                    SocialButton(
+                      backgroundColor: Colors.red,
+                      icon: FontAwesomeIcons.google,
+                      onPressed: () {},
+                    ),
+                  ],
+                ),
               ),
               const SizedBox(height: 16.0),
-              const Text('Don\'t have an account? Sign Up'),
+              GestureDetector(
+                  onTap: () => Navigator.of(context).pop(),
+                  child: const Text('Don\'t have an account? Sign Up')),
             ],
           ),
         ),

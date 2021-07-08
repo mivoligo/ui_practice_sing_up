@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:sign_up/ui/login_screen.dart';
@@ -11,17 +12,25 @@ class WelcomeScreen extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Expanded(
-            child: Image.asset('assets/images/welcome_image.png'),
+            child: Hero(
+                tag: 'image',
+                child: Image.asset('assets/images/welcome_image.png')),
           ),
           Expanded(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Text(
-                  'Welcome',
-                  style: TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
+                const Hero(
+                  tag: 'text',
+                  child: Material(
+                    type: MaterialType.transparency,
+                    child: Text(
+                      'Welcome',
+                      style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
                   ),
                 ),
                 const Padding(
@@ -36,21 +45,22 @@ class WelcomeScreen extends StatelessWidget {
                 Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    TextButton(
-                      onPressed: () => Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (context) => LoginScreen(),
+                    Hero(
+                      tag: 'login_button',
+                      child: TextButton(
+                        onPressed: () => Navigator.of(context).push(
+                          _buildPageRouteBuilder(),
                         ),
-                      ),
-                      child: const Text('Login'),
-                      style: TextButton.styleFrom(
-                        backgroundColor: Colors.blue,
-                        primary: Colors.white,
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 40.0,
-                          vertical: 18.0,
+                        child: const Text('Login'),
+                        style: TextButton.styleFrom(
+                          backgroundColor: Colors.blue,
+                          primary: Colors.white,
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 40.0,
+                            vertical: 18.0,
+                          ),
+                          shape: const StadiumBorder(),
                         ),
-                        shape: const StadiumBorder(),
                       ),
                     ),
                     const SizedBox(width: 8.0),
@@ -73,20 +83,23 @@ class WelcomeScreen extends StatelessWidget {
                   children: [
                     const Text('Or via social media'),
                     const SizedBox(height: 8.0),
-                    Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        SocialButton(
-                          backgroundColor: Colors.blue,
-                          icon: FontAwesomeIcons.facebookF,
-                          onPressed: () {},
-                        ),
-                        SocialButton(
-                          backgroundColor: Colors.red,
-                          icon: FontAwesomeIcons.google,
-                          onPressed: () {},
-                        ),
-                      ],
+                    Hero(
+                      tag: 'social_buttons',
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          SocialButton(
+                            backgroundColor: Colors.blue,
+                            icon: FontAwesomeIcons.facebookF,
+                            onPressed: () {},
+                          ),
+                          SocialButton(
+                            backgroundColor: Colors.red,
+                            icon: FontAwesomeIcons.google,
+                            onPressed: () {},
+                          ),
+                        ],
+                      ),
                     ),
                     const SizedBox(height: 36.0),
                   ],
@@ -96,6 +109,25 @@ class WelcomeScreen extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+
+  PageRouteBuilder _buildPageRouteBuilder() {
+    return PageRouteBuilder(
+      pageBuilder: (context, animation, secondaryAnimation) {
+        return LoginScreen();
+      },
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        return SlideTransition(
+          position: Tween<Offset>(
+            begin: const Offset(1.0, 0.0),
+            end: const Offset(0.0, 0.0),
+          ).animate(animation),
+          child: child,
+        );
+      },
+      // transitionDuration: const Duration(seconds: 1),
+      // reverseTransitionDuration: const Duration(seconds: 1),
     );
   }
 }
